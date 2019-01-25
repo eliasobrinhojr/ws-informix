@@ -19,7 +19,7 @@ public class PessoaFisicaDAO extends BaseDAO {
 
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("select * from fisicap;");
+			stmt = conn.prepareStatement("select first 10 * from fisicap;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
