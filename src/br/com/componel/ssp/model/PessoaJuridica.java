@@ -197,6 +197,7 @@ public class PessoaJuridica implements Serializable {
 	public String getCtirf() {
 		return ctirf;
 	}
+
 	public void setCtirf(String ctirf) {
 		this.ctirf = ctirf;
 	}

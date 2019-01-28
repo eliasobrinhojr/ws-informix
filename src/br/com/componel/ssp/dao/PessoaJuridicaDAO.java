@@ -1,7 +1,6 @@
 package br.com.componel.ssp.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ public class PessoaJuridicaDAO extends BaseDAO {
 
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("select first 10 * from juridicap;");
+			stmt = conn.prepareStatement("select first 100 * from juridicap;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -45,68 +44,65 @@ public class PessoaJuridicaDAO extends BaseDAO {
 	public PessoaJuridica createPessoaJuridica(ResultSet rs) throws SQLException {
 		PessoaJuridica pessoaJuridica = new PessoaJuridica();
 
-
-
-//		pessoaJuridica.setCdemp(rs.getString(1));
-//		pessoaJuridica.setCdpre(rs.getString(2));
-//		pessoaJuridica.setCddoc(rs.getInt(3));
-//		pessoaJuridica.setCdpar(rs.getDate(4));
-//		pessoaJuridica.setDtdoc(rs.getDate(5));
-//		pessoaJuridica.setDtdig(rs.getDate(6));
-//		pessoaJuridica.setDtpag(rs.getFloat(7));
-//		pessoaJuridica.setVldes(rs.getString(8));
-//		pessoaJuridica.setCtdes(rs.getFloat(9));
-//		pessoaJuridica.setVladi(rs.getString(10));
-//		pessoaJuridica.setCtadi(rs.getString(11));
-//		pessoaJuridica.setQtiss(rs.getFloat(12));
-//		pessoaJuridica.setQtirf(rs.getFloat(13));
-//		pessoaJuridica.setVliss(rs.getInt(14));
-//		pessoaJuridica.setCtiss(rs.getFloat(15));
-//		pessoaJuridica.setVlirf(rs.getFloat(16));
-//		pessoaJuridica.setCtirf(rs.getFloat(17));
-//		pessoaJuridica.setVlgps(rs.getFloat(18));
-//		pessoaJuridica.setCtgps(rs.getFloat(19));
-//		pessoaJuridica.setVlliq(rs.getFloat(20));
-//		pessoaJuridica.setObser(rs.getString(21));
-//		pessoaJuridica.setStimp(rs.getFloat(22));
-//		pessoaJuridica.setPrpgto(rs.getFloat(23));
-//		pessoaJuridica.setVldesc(rs.getString(24));
-//		pessoaJuridica.setCtdesc(rs.getFloat(25));
-//		pessoaJuridica.setVljur(rs.getString(26));
-//		pessoaJuridica.setCtjur(rs.getString(27));
-//		pessoaJuridica.setDtreal(rs.getString(28));
-//		pessoaJuridica.setVlpcc(rs.getString(29));
-//		pessoaJuridica.setCtpcc(rs.getFloat(30));
-//		pessoaJuridica.setQtpcc(rs.getString(31));
-//		pessoaJuridica.setQtpis(rs.getFloat(32));
-//		pessoaJuridica.setVlpis(rs.getString(33));
-//		pessoaJuridica.setCtpis(rs.getDate(34));
-//		pessoaJuridica.setQtcof(rs.getFloat(35));
-//		pessoaJuridica.setVlcof(rs.getFloat(36));
-//		pessoaJuridica.setCtcof(rs.getFloat(37));
-//		pessoaJuridica.setQtcsl(rs.getString(38));
-//		pessoaJuridica.setVlcsl(rs.getString(39));
-//		pessoaJuridica.setCtcsl(rs.getDate(40));
-//		pessoaJuridica.setQtpcc1(rs.getString(41));
-//		pessoaJuridica.setVlpcc1(rs.getDate(42));
-//		pessoaJuridica.setCtpcc1(rs.getInt(43));
-//		pessoaJuridica.setCdpcc1(rs.getInt(44));
-//		pessoaJuridica.setQtpcc2(rs.getInt(45));
-//		pessoaJuridica.setVlpcc2(rs.getString(41));
-//		pessoaJuridica.setCtpcc2(rs.getDate(42));
-//		pessoaJuridica.setCdpcc2(rs.getInt(43));
-//		pessoaJuridica.setBspcc1(rs.getInt(44));
-//		pessoaJuridica.setBspcc2(rs.getInt(45));
-//		pessoaJuridica.setBsiss(rs.getString(41));
-//		pessoaJuridica.setIdeletronica(rs.getDate(42));
-//		pessoaJuridica.setDthorlanc(rs.getInt(43));
-//		pessoaJuridica.setCdusu(rs.getInt(44));
-//		pessoaJuridica.setBsirf(rs.getInt(45));
-//		pessoaJuridica.setDthorinterface(rs.getInt(43));
-//		pessoaJuridica.setTpscod(rs.getInt(44));
-//		pessoaJuridica.setCdregtrib(rs.getInt(45));
-//		pessoaJuridica.setBspiscofins(rs.getInt(43));
-
+		pessoaJuridica.setCdemp(rs.getString(1));
+		pessoaJuridica.setCdpre(rs.getString(2));
+		pessoaJuridica.setCddoc(rs.getInt(3));
+		pessoaJuridica.setCdpar(rs.getString(4));
+		pessoaJuridica.setDtdoc(rs.getDate(5));
+		pessoaJuridica.setDtdig(rs.getDate(6));
+		pessoaJuridica.setDtpag(rs.getDate(7));
+		pessoaJuridica.setVldes(rs.getFloat(8));
+		pessoaJuridica.setCtdes(rs.getString(9));
+		pessoaJuridica.setVladi(rs.getFloat("vladi"));
+		pessoaJuridica.setCtadi(rs.getString("ctadi"));
+		pessoaJuridica.setQtiss(rs.getFloat("qtiss"));
+		pessoaJuridica.setQtirf(rs.getFloat(13));
+		pessoaJuridica.setVliss(rs.getFloat(14));
+		pessoaJuridica.setCtiss(rs.getString(15));
+		pessoaJuridica.setVlirf(rs.getFloat("vlirf"));
+		pessoaJuridica.setCtirf(rs.getString("ctirf"));
+		pessoaJuridica.setVlgps(rs.getFloat("vlgps"));
+		pessoaJuridica.setCtgps(rs.getString("ctgps"));
+		pessoaJuridica.setVlliq(rs.getFloat("vlliq"));
+		pessoaJuridica.setObser(rs.getString("obser"));
+		pessoaJuridica.setStimp(rs.getString("stimp"));
+		pessoaJuridica.setPrpgto(rs.getString("prpgto"));
+		pessoaJuridica.setVldesc(rs.getFloat("vldesc"));
+		pessoaJuridica.setCtdesc(rs.getString("ctdesc"));
+		pessoaJuridica.setVljur(rs.getFloat("vljur"));
+		pessoaJuridica.setCtjur(rs.getString("ctjur"));
+		pessoaJuridica.setDtreal(rs.getDate("dtreal"));
+		pessoaJuridica.setVlpcc(rs.getFloat("vlpcc"));
+		pessoaJuridica.setCtpcc(rs.getString("ctpcc"));
+		pessoaJuridica.setQtpcc(rs.getFloat("qtpcc"));
+		pessoaJuridica.setQtpis(rs.getFloat("qtpis"));
+		pessoaJuridica.setVlpis(rs.getFloat("vlpis"));
+		pessoaJuridica.setCtpis(rs.getString("ctpis"));
+		pessoaJuridica.setQtcof(rs.getFloat("qtcof"));
+		pessoaJuridica.setVlcof(rs.getFloat("vlcof"));
+		pessoaJuridica.setCtcof(rs.getString("ctcof"));
+		pessoaJuridica.setQtcsl(rs.getFloat("qtcsl"));
+		pessoaJuridica.setVlcsl(rs.getFloat("vlcsl"));
+		pessoaJuridica.setCtcsl(rs.getString("ctcsl"));
+		pessoaJuridica.setQtpcc1(rs.getFloat("qtpcc1"));
+		pessoaJuridica.setVlpcc1(rs.getFloat("vlpcc1"));
+		pessoaJuridica.setCtpcc1(rs.getString("ctpcc1"));
+		pessoaJuridica.setCdpcc1(rs.getString("cdpcc1"));
+		pessoaJuridica.setQtpcc2(rs.getFloat("qtpcc2"));
+		pessoaJuridica.setVlpcc2(rs.getFloat("vlpcc2"));
+		pessoaJuridica.setCtpcc2(rs.getString("ctpcc2"));
+		pessoaJuridica.setCdpcc2(rs.getString("cdpcc2"));
+		pessoaJuridica.setBspcc1(rs.getFloat("bspcc1"));
+		pessoaJuridica.setBspcc2(rs.getFloat("bspcc2"));
+		pessoaJuridica.setBsiss(rs.getFloat("bsiss"));
+		pessoaJuridica.setIdeletronica(rs.getInt("ideletronica"));
+		pessoaJuridica.setDthorlanc(rs.getDate("dthorlanc"));
+		pessoaJuridica.setCdusu(rs.getString("cdusu"));
+		pessoaJuridica.setBsirf(rs.getFloat("bsirf"));
+		pessoaJuridica.setDthorinterface(rs.getDate("dthorinterface"));
+		pessoaJuridica.setTpscod(rs.getInt("tpscod"));
+		pessoaJuridica.setCdregtrib(rs.getInt("cdregtrib"));
+		pessoaJuridica.setBspiscofins(rs.getFloat("bspiscofins"));
 
 		return pessoaJuridica;
 	}
