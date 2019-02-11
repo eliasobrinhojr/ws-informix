@@ -25,6 +25,7 @@ public class PrestadorServlet extends HttpServlet  {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		setAccessControlHeaders(resp);
 		List<Prestador> prestadores = prestService.getPrestadores();
 		ListaPrestadores lista = new ListaPrestadores();
 		lista.setPrestadores(prestadores);
@@ -33,6 +34,12 @@ public class PrestadorServlet extends HttpServlet  {
 		//String json = JAXBUtil.toJson(lista);
 		String json = gson.toJson(lista);
 		ServletUtil.writeJSON(resp, json);
+	}
+	
+
+	private void setAccessControlHeaders(HttpServletResponse resp) {
+		resp.setHeader("Access-Control-Allow-Origin", "http://dev.grupois.mao");
+		resp.setHeader("Access-Control-Allow-Methods", "GET");
 	}
 	
 }
