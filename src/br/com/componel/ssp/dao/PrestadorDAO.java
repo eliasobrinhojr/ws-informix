@@ -19,7 +19,7 @@ public class PrestadorDAO extends BaseDAO {
 
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("select * from prestadores;");
+			stmt = conn.prepareStatement("select FIRST 15 * from prestadores;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {

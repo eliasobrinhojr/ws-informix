@@ -19,10 +19,16 @@ public class BaseDAO {
 		Connection conn = DriverManager.getConnection(url, "informix", "informix");
 		return conn;
 	}
+	
+	protected Connection getConnectionCass() throws SQLException {
+		String url = "jdbc:informix-sqli://147.2.10.24:10040/casdb:INFORMIXSERVER=ol_srvmaodb";
+		Connection conn = DriverManager.getConnection(url, "informix", "informix");
+		return conn;
+	}
 
 	public static void main(String[] args) throws SQLException {
 		BaseDAO db = new BaseDAO();
-		Connection conn = db.getConnection();
+		Connection conn = db.getConnectionCass();
 		System.out.println(conn);
 	}
 
