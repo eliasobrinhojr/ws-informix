@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.componel.ssp.dao.FornecedorDAO;
-import br.com.componel.ssp.dao.PrestadorDAO;
 import br.com.componel.ssp.model.Fornecedor;
-import br.com.componel.ssp.model.Prestador;
 
 public class FornecedorService {
 

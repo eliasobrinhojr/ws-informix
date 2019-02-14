@@ -12,6 +12,8 @@ import br.com.componel.ssp.model.PessoaFisica;
 
 public class PessoaFisicaDAO extends BaseDAO {
 
+	
+
 	public List<PessoaFisica> getListaPessoaFisica() throws SQLException {
 		List<PessoaFisica> listaPessoaFisica = new ArrayList<>();
 		Connection conn = null;

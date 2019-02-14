@@ -7,8 +7,10 @@ import java.sql.SQLException;
 public class BaseDAO {
 	
 	public BaseDAO() {
+		String driver = "com.informix.jdbc.IfxDriver";
+				
 		try {
-			Class.forName("com.informix.jdbc.IfxDriver");
+			Class.forName(driver);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -25,10 +27,22 @@ public class BaseDAO {
 		Connection conn = DriverManager.getConnection(url, "informix", "informix");
 		return conn;
 	}
+	
+	protected Connection getConnectionMysql() throws SQLException {
+		String driver = "com.mysql.jdbc.Driver";
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		String url = "jdbc:mysql://147.2.10.10/sspdb";
+		Connection conn = DriverManager.getConnection(url, "user_ssp", "ssppass");
+		return conn;
+	}
 
 	public static void main(String[] args) throws SQLException {
 		BaseDAO db = new BaseDAO();
-		Connection conn = db.getConnectionCass();
+		Connection conn = db.getConnectionMysql();
 		System.out.println(conn);
 	}
 

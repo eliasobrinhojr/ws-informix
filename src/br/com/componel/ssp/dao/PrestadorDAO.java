@@ -12,6 +12,8 @@ import br.com.componel.ssp.model.Prestador;
 
 public class PrestadorDAO extends BaseDAO {
 
+
+
 	public List<Prestador> getPrestadores() throws SQLException {
 		List<Prestador> prestadores = new ArrayList<>();
 		Connection conn = null;

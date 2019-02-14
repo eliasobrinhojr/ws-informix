@@ -12,6 +12,7 @@ import br.com.componel.ssp.model.Empresa;
 
 public class EmpresaDAO extends BaseDAO {
 
+
 	public List<Empresa> getEmpresas() throws SQLException {
 		List<Empresa> empresas = new ArrayList<>();
 		Connection conn = null;
@@ -19,7 +20,7 @@ public class EmpresaDAO extends BaseDAO {
 
 		try {
 			conn = getConnection();
-			stmt = conn.prepareStatement("select * from empresas;");
+			stmt = conn.prepareStatement("select FIRST 15 * from empresas;");
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -40,7 +41,8 @@ public class EmpresaDAO extends BaseDAO {
 		return empresas;
 
 	}
-
+	
+	
 	public Empresa createEmpresa(ResultSet rs) throws SQLException {
 		Empresa emp = new Empresa();
 
